@@ -12,8 +12,8 @@ set(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH}" "${PROJECT_SOURCE_DIR}/cmake/Module
 include(GNUInstallDirs)
 
 option(BUILD_WITH_QT4 "Build qtkeychain with Qt4 no matter if Qt5 was found" OFF)
-option(BUILD_TRANSLATIONS "Build translations" ON)
-option(QTKEYCHAIN_STATIC "Build static library" OFF)
+option(BUILD_TRANSLATIONS "Build translations" OFF)
+option(QTKEYCHAIN_STATIC "Build static library" ON)
 
 if (WIN32)
     option(USE_CREDENTIAL_STORE "Build with windows CredentialStore support" ON)
@@ -126,7 +126,7 @@ if(UNIX AND NOT APPLE)
     list(APPEND qtkeychain_LIBRARIES ${QTDBUS_LIBRARIES} )
 endif()
 
-QT_WRAP_CPP(qtkeychain_MOC_OUTFILES keychain.h keychain_p.h)
+#QT_WRAP_CPP(qtkeychain_MOC_OUTFILES keychain.h keychain_p.h)
 
 set(qtkeychain_TR_FILES
       translations/qtkeychain_de.ts
